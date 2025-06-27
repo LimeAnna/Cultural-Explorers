@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Explorers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="main-page">
+<!--  Desenvolvido por Anna Lima - RU: 3842300
+  Página inicial com 4 menus
+  -->
+            <div class="header">
+                <div class="settings-icon">⚙️</div>
+                <div class="profile-container">
+                    <div class="profile-avatar">👦<div class="profile-level">6</div></div>
+                </div>
+
+                <h1 class="title">Cultural Explorers</h1>
+                <p class="subtitle">Descubra a cultura ao seu redor</p>
+
+                <p class="subtitle">Desenvolvido por Anna Lima - RU: 3842300</p>
+            </div>
+
+            <div class="main-menu">
+                <a href="#" class="menu-button" onclick="showPage('locations')">
+                    <div class="menu-icon locations">🗺️</div>
+                    <div class="menu-text">
+
+                        <div class="menu-title">Locais Explorados</div>
+                    </div>
+
+                </a>
+                <a href="#" class="menu-button" onclick="showPage('challenges')">
+                    <div class="menu-icon challenges">🎯</div>
+                    <div class="menu-text">
+
+                        <div class="menu-title">Meus Desafios</div>
+                    </div>
+                </a>
+
+                <a href="#" class="menu-button" onclick="showPage('achievements')">
+                    <div class="menu-icon achievements">🏆</div>
+                    <div class="menu-text">
+
+                        <div class="menu-title">Minhas Conquistas</div>
+                    </div>
+                </a>
+
+                <a href="#" class="menu-button" onclick="showPage('photos')">
+                    <div class="menu-icon photos">📸</div>
+                    <div class="menu-text">
+
+                        <div class="menu-title">Minhas Fotos</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Locais visitados pelos alunos.
+        Contém um mapa onde o aluno pode visualizar pontos visitados, datas e nomes de locais (locations)-->
+
+        <div id="locations-page" class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showPage('main')">←</button>
+                <h2 class="page-title">Locais Explorados</h2>
+            </div>
+            
+            <div class="page-content">
+                <div class="map-placeholder" id="mapPlaceholder" style="display: none;">
+                    <div style="font-size: 48px; margin-bottom: 20px;">🗺️</div>
+                    <h3 style="margin-bottom: 15px;">Parque Estadual da Vila Velha</h3>
+                </div>
+
+                <iframe class="map-iframe" id="mapIframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3645.7234567890123!2d-50.0228!3d-25.2493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDE0JzU3LjUiUyA1MMKwMDEnMjIuMSJX!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div style="background: white; padding: 15px; border-radius: 10px; margin: 10px 0;">
+                <strong>📍Arenitos da Vila Velha</strong> 
+
+
+                <p style="color: #666; margin-top: 5px;">Visitado em 15/06/2025</p>
+            </div>
+
+            <div style="background: white; padding: 15px; border-radius: 10px; margin: 10px 0;">
+                <strong>📍Lagoa Dourada</strong>
+                <p style="color: #666; margin-top: 5px;">Visitado em 10/06/2025</p>
+            </div>
+
+            <div style="background: white; padding: 15px; border-radius: 10px; margin: 10px 0;">
+                <strong>📍Furnas</strong>
+                <p style="color: #666; margin-top: 5px;">Visitado em 05/06/2025</p>
+            </div>
+
+        </div>
+        <!-- Página de QUIZ onde o aluno responde perguntas de única escolha
+        relacionadas aos locais visitados
+        Possui sistema para ganho de XP por questão certa (challenge)-->
+
+        <div id="challenges-page" class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showPage('main')">←</button>
+                <h2 class="page-title">Meus Desafios</h2>
+            </div>
+            <div class="page-content">
+                <div class="quiz-question">
+                    <h3>Como foram formadas as rochas do Parque Vila Velha?</h3>
+
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="answerQuestion(this, true, 0)">Por erosão de arenitos ao longo de milhões de anos</button>
+                        
+                        <button class="quiz-option" onclick="answerQuestion(this, false, 0)">Por atividade vulcânica recente</button>
+                    </div>
+
+                </div>
+
+                <div class="quiz-question">
+                    <h3>O que é a Lagoa Dourada no Parque Vila Velha?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="answerQuestion(this, true, 1)">💧Uma nascente natural de água cristalina</button>
+                        
+                        <button class="quiz-option" onclick="answerQuestion(this, false, 1)">🏊Uma piscina artificial para turistas</button>
+                    </div>
+
+                </div>
+
+                <div class="quiz-question">
+                    <h3>Em que cidade fica o Parque Vila Velha?</h3>
+                    <div class="quiz-options">
+                        <button class="quiz-option" onclick="answerQuestion(this, true, 2)">🏙️Ponta Grossa - PR</button>
+                        
+                        <button class="quiz-option" onclick="answerQuestion(this, false, 2)">🌴Curitiba - PR</button>
+
+                    </div>
+
+                </div>
+                <div id="quiz-result" class="quiz-result"></div>
+            </div>
+        </div>
+
+        <div id="achievements-page" class="page">
+<!-- Mostra os XP ganho, nível e desafios cumpridos (achievements).-->
+ 
+            <div class="page-header">
+                <button class="back-button" onclick="showPage('main')">←</button>
+                <h2 class="page-title">Minhas Conquistas</h2>
+            </div>
+            
+            <div class="page-content">
+                <div style="text-align: center; margin: 20px 0;">
+                    <div style="background: linear-gradient(135deg, #00bf63 0%, #008f6e 100%); color: white; padding: 20px; border-radius: 15px;">
+                        
+                        <h3>Nível 06</h3>
+                        <div style="background: rgba(255,255,255,0.3); border-radius: 10px; height: 10px; margin: 10px 0;">
+                            <div style="background: #FFD93D; height: 100%; width: 75%; border-radius: 10px;"></div>
+                        </div>
+                        <p>500xp para lvl 07</p>
+                    </div>
+
+                </div>
+                <div class="achievement-item">
+                    <div class="achievement-icon completed">📸</div>
+
+                    <div>
+                        <strong>Foto das Formações Rochosas</strong>
+                        <p style="color: #666;">250xp - Parque Vila Velha</p>
+                    </div>
+
+                </div>
+                
+                <div class="achievement-item">
+                    <div class="achievement-icon completed">✅</div>
+                    <div>
+                        <strong>Quiz 1 do Parque Vila Velha</strong>
+                        <p style="color: #666;">250xp - Conhecimento geológico</p>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon completed">🌿</div>
+                    <div>
+                        <strong>Trilha Ecológica Completa</strong>
+                        <p style="color: #666;">300xp - Exploração da natureza</p>
+                    </div>
+                </div>
+
+                <div class="achievement-item">
+                    <div class="achievement-icon locked">📝</div>
+                    <div>
+                        <strong>Redação sobre Lagoa Dourada</strong>
+                        <p style="color: #666;">250xp - Pesquisa pendente</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="photos-page" class="page">
+            <div class="page-header">
+                <button class="back-button" onclick="showPage('main')">←</button>
+                <h2 class="page-title">Minhas Fotos</h2>
+            </div>
+<!-- Fotos tiradas pelo aluno nos locais de visitação -->
+            <div class="page-content">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div class="photo-card">
+                        <div class="photo-overlay">
+                            <strong>Vila Velha</strong>
+                            <span>15/06/2025</span>
+                        </div>
+                        <img src="assets/vila-velha.jpg" alt="Vila Velha">
+                    </div>
+
+                    <div class="photo-card">
+                        <div class="photo-overlay">
+                            <strong>Lagoa Dourada</strong>
+                            <span>10/06/2025</span>
+                        </div>
+                        <img src="assets/lagoa-dourada.jpg" alt="Lagoa Dourada">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> 
+
+    <footer style="text-align: center; padding: 20px; font-size: 14px; color: #000000;">
+        Desenvolvido por Anna Lima - RU: 3842300
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
